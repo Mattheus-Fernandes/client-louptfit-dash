@@ -7,7 +7,7 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            // Adicione aqui as rotas filhas, se necessário
+            { path: "login", loadChildren: () => import("../pages/login/login.module").then(m => m.LoginModule) },
         ]
     }
 ];
