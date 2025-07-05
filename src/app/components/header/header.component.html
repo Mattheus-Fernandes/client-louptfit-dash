@@ -2,7 +2,12 @@
     <p class="header__title">Loupfit</p>
     <nav class="header__nav">
         <ul class="header__nav-list">
-            <ng-container *ngFor="let link of linksToRedirect">
+            <ng-container *ngIf="id">
+               <ng-container *ngFor="let link of linksPrivate">
+                    <app-nav-item [linkText]="link"></app-nav-item>
+                </ng-container>
+            </ng-container>
+           <ng-container *ngFor="let link of linksPublic">
                 <app-nav-item [linkText]="link"></app-nav-item>
             </ng-container>
         </ul>

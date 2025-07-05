@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { listLinks } from 'src/app/types/list-links.types';
 
 @Component({
@@ -6,10 +7,18 @@ import { listLinks } from 'src/app/types/list-links.types';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  linksToRedirect: listLinks = [
+export class HeaderComponent {
+  @Input() id!:number | null
+
+  linksPrivate: listLinks = [
     { linkText: "Novo produto", linkUrl: "" },
     { linkText: "Registrar venda", linkUrl: "" },
+    { linkText: "Fornecedores", linkUrl: "" },
+    { linkText: "Papelaria", linkUrl: "" },
+    { linkText: "Reposição de estoque", linkUrl: "" },
+  ]
+
+  linksPublic: listLinks = [
     { linkText: "Mais vendidos", linkUrl: "" },
     { linkText: "Conjuntos", linkUrl: "" },
     { linkText: "Macaquinhos", linkUrl: "" },
@@ -18,15 +27,7 @@ export class HeaderComponent implements OnInit {
     { linkText: "Tops", linkUrl: "" },
     { linkText: "Blusas", linkUrl: "" },
     { linkText: "Casacos", linkUrl: "" },
-    { linkText: "Papelaria", linkUrl: "" },
-    { linkText: "Reposição de estoque", linkUrl: "" },
-    { linkText: "Fornecedores", linkUrl: "" }
+
   ]
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
