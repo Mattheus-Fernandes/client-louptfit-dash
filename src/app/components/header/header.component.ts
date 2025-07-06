@@ -37,14 +37,11 @@ export class HeaderComponent {
 
   notAdmin(role: number): listLinks {
 
-    if (role === 1) {
+    if (role === 2) {
       return this.linksPrivate
     }
 
-    const linksNotAdmin = [...this.linksPrivate]
-    linksNotAdmin.splice(2, 1)
-
-    return linksNotAdmin
+    return this.linksPrivate.filter((_, index) => index !== 2 && index !== 8)
   }
 
 }
