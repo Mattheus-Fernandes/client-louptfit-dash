@@ -8,14 +8,18 @@ import { listLinks } from 'src/app/types/list-links.types';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Input() id!:number | null
+  @Input() id!: number | null
+  @Input() role!: number
 
   linksPrivate: listLinks = [
     { linkText: "Novo produto", linkUrl: "" },
-    { linkText: "Registrar venda", linkUrl: "" },
+    { linkText: "Lançar venda", linkUrl: "" },
     { linkText: "Fornecedores", linkUrl: "" },
-    { linkText: "Papelaria", linkUrl: "" },
-    { linkText: "Reposição de estoque", linkUrl: "" },
+    { linkText: "Loja", linkUrl: "" },
+    { linkText: "Mercadorias", linkUrl: "" },
+    { linkText: "Compras", linkUrl: "" },
+    { linkText: "Estoque", linkUrl: "" },
+    { linkText: "Reposições", linkUrl: "" },
   ]
 
   linksPublic: listLinks = [
@@ -27,7 +31,18 @@ export class HeaderComponent {
     { linkText: "Tops", linkUrl: "" },
     { linkText: "Blusas", linkUrl: "" },
     { linkText: "Casacos", linkUrl: "" },
-
   ]
+
+  notAdmin(role: number): listLinks {
+
+    if (role === 1) {
+      return this.linksPrivate
+    }
+
+    const linksNotAdmin = [...this.linksPrivate]
+    linksNotAdmin.splice(2, 1)
+
+    return linksNotAdmin
+  }
 
 }
