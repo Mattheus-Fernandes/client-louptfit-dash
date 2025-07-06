@@ -1,0 +1,15 @@
+<form class="form-login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-login__fields">
+        <div class="form-login__field">
+            <label class="form-login__label" for="nickname">Usuário</label>
+            <input class="form-login__input" type="text" id="nickname" name="nickname" placeholder="Digite seu usuário" formControlName="username">
+            <app-error-message errorMessage="Usuário incorreto"></app-error-message>
+        </div>
+        <div class="form-login__field">
+            <label class="form-login__label" for="password">Senha</label>
+            <input class="form-login__input" type="password" id="password" name="password" placeholder="*********" formControlName="password">
+            <app-error-message errorMessage="Senha inválida"></app-error-message>
+        </div>
+    </div>
+    <button class="form-login__button">Entrar</button>
+</form>

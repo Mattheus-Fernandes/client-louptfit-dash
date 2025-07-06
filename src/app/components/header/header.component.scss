@@ -1,0 +1,31 @@
+.header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    padding-bottom: 1em;
+
+    &__title {
+        background-color: #d20567;
+        padding: .6em;
+        color: #ebebeb;
+        font-size: 2em;
+        letter-spacing: 1.3px;
+    }
+
+    &__nav {
+        padding: 0 .2em;
+        width: 100%;
+    }
+
+    &__nav-list {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+    }
+
+
+}
