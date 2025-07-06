@@ -13,6 +13,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   id!: number | null
   user: IUser = {} as IUser
+  role!: number
   private subscription!: Subscription
 
   constructor(
@@ -32,9 +33,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
   getDetailsUser() {
     this.userService.getUserByid(this.id as number).pipe(
       take(1)
-    ).subscribe(res => {
-      console.log(res)
-    })
+    ).subscribe((res: IUser) => this.role = res.role)
   }
 
   ngOnDestroy() {
