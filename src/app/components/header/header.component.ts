@@ -20,6 +20,8 @@ export class HeaderComponent {
     { linkText: "Compras", linkUrl: "" },
     { linkText: "Estoque", linkUrl: "" },
     { linkText: "Reposições", linkUrl: "" },
+    { linkText: "Usuários", linkUrl: "" },
+
   ]
 
   linksPublic: listLinks = [
