@@ -7,7 +7,9 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
+            { path: "", redirectTo: "launch-sale", pathMatch: "full"},
             { path: "login", loadChildren: () => import("../pages/login/login.module").then(m => m.LoginModule) },
+            { path: "launch-sale", loadChildren: () => import("../pages/launch-sale/launch-sale.module").then(m => m.LaunchSaleModule)}
         ]
     }
 ];
