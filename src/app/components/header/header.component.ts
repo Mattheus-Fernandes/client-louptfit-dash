@@ -37,7 +37,7 @@ export class HeaderComponent {
 
   notAdmin(role: number): listLinks {
 
-    if (role === 2) {
+    if (role === 1) {
       return this.linksPrivate
     }
 
