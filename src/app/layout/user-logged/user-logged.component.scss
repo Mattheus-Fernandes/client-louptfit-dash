@@ -1,0 +1,33 @@
+.user-logged {
+    width: fit-content;
+    padding: .5em;
+    border-radius: 2px;
+    background-color: #dedede;
+    font-size: .8rem;
+
+    &__subtitle {
+        font-weight: 600;
+        font-size: .85rem;
+        margin-bottom: .4em;
+        display: block;
+    }
+
+    &__field {
+        display: flex;
+        gap: 2em;
+        align-items: center;
+    }
+
+    &__fields {
+        display: flex;
+        flex-direction: column;
+        gap: .3em;
+    }
+
+    &__active {
+        width: 10px;
+        height: 10px;
+        background-color: #29b51f;
+        border-radius: 100%;
+    }
+}
