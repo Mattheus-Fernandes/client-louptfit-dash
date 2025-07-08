@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/interfaces/user.interface';
-import { AuthService } from 'src/app/services/auth.service';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class FormLoginComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly loginService: LoginService,
-    private readonly authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -32,10 +30,11 @@ export class FormLoginComponent implements OnInit {
 
     this.loginService.loginUser( username, password).subscribe(
       {
-        next: (response: IUser) => {
-          this.authService.setIdUser(response.id)
+        next: (user: IUser) => {
+          
+          localStorage.setItem("user", JSON.stringify(user))
+
           this.router.navigate(['dashboard'])
-          localStorage.setItem('id_user', response.id.toString());
 
         },
         error: (error) => {
