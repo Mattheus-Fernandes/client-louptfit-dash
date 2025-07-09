@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input } from '@angular/core';
 import { listLinks } from 'src/app/types/list-links.types';
 
 @Component({
@@ -24,24 +23,13 @@ export class HeaderComponent {
 
   ]
 
-  linksPublic: listLinks = [
-    { linkText: "Mais vendidos", linkUrl: "" },
-    { linkText: "Conjuntos", linkUrl: "" },
-    { linkText: "Macaquinhos", linkUrl: "" },
-    { linkText: "Calças", linkUrl: "" },
-    { linkText: "Shorts", linkUrl: "" },
-    { linkText: "Tops", linkUrl: "" },
-    { linkText: "Blusas", linkUrl: "" },
-    { linkText: "Casacos", linkUrl: "" },
-  ]
-
   notAdmin(role: number): listLinks {
 
     if (role === 1) {
       return this.linksPrivate
     }
 
-    return this.linksPrivate.filter((_, index) => index !== 2 && index !== 8)
+    return this.linksPrivate.filter((_, index) => index !== 0 && index !== 2 && index !== 8)
   }
 
 }
