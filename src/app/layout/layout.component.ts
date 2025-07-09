@@ -1,7 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from '../interfaces/user.interface';
-import { filter, Subscription, take } from 'rxjs';
-import { NavigationEnd, Router } from '@angular/router';
+import { take } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -18,7 +17,8 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._authService.idUser$.subscribe(res => console.log(res))
+    this._authService.user$.pipe(take(1))
+      .subscribe((user: IUser) => this.user = user)
   }
 
 }
